@@ -1,0 +1,14 @@
+groq
+pyyaml
+rapidfuzz
+streamlit~=1.46.1
+paramiko~=3.5.1
+scp~=0.15.0
+langchain
+langchain-community
+langchain-openai~=0.3.27
+python-dotenv~=1.1.1
+langgraph~=0.5.2
+langchain-core~=0.3.68
+pydantic~=2.11.7
+langchain_groq
