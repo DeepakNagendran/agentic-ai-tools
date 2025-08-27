@@ -64,7 +64,7 @@ User ⇨ Streamlit Chat UI
 
 ```bash
 # Clone this repo
-git clone https://github.com/DeepakNagendran/agentic-ai-tools.git
+git clone https://github.com/your-username/agentic-ai-ne-assistant.git
 cd agentic-ai-ne-assistant
 
 # Create virtual environment

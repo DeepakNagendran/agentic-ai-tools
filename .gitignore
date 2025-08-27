@@ -1,0 +1,21 @@
+#Python Virtual Environment
+.venv
+
+#Environmental variable
+.env
+
+#IDE files
+.idea
+
+#Temp files
+downloaded_file
+
+#log file
+agentic_ai.log
+
+#Python Cache
+__pycache__/
+**/__pycache__/
+app/agent/__pycache__
+app/tools/__pycache__
+app/common/__pycache__

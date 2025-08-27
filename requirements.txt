@@ -1,3 +1,4 @@
+langchain-ollama
 groq
 pyyaml
 rapidfuzz
