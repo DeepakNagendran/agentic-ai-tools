@@ -1,6 +1,11 @@
-# 🔐 Agentic AI - NativeEdge Assistant
+# 🔐 Agentic AI - Assistant
 
-**NativeEdge Assistant** is an intelligent assistant that automates NativeEdge operations, powered by **Groq LLaMA3** and **LangGraph agents**. It understands natural language commands and dynamically selects the appropriate tool to execute operation securely.
+This project provides an **Agentic AI assistant** built with **LangGraph** and **LangChain**.  
+The assistant integrates multiple tools into a single agent, allowing it to execute:
+
+- **SSH commands** on remote systems
+- **SCP file transfers**
+- **OpenAPI-based API requests** (automatically parsing OpenAPI specifications, constructing payloads, and making authenticated requests)
 
 ![LangGraph](https://img.shields.io/badge/LangGraph-Agentic-blueviolet)
 ![Groq LLaMA3](https://img.shields.io/badge/LLM-Groq%20LLaMA3-blue)
@@ -13,10 +18,12 @@
 - ⚙️ **Tool-Augmented Execution**: Supports SSH (command execution) and SCP (file downloads)
 - 🧠 **Persistent Memory**: Remembers IPs, usernames, etc. using `MemorySaver` (SQLite-based)
 - 🗣️ **Natural Language Commands**: Run commands like:
-  > "Connect to ECE with IP, username , password and run `ls -ltr`"
+  > "ssh to Device with IP, and run `ls -ltr`"
+  > "scp to Device with IP, and download the file `abs filepath`"
 - 🪄 **Automatic Tool Routing**: Automatically detects which tool to use
 - 📥 **File Download Support**: Streamlit UI enables downloading SCP’d files
-- 🔁 **Batch Mode**: Upload a file to process multiple requests in one go
+- 🔁 **OpenAPI spec parsing**: from local files (`app/openapi/`)
+- ✅ **Automatic API request construction** with placeholder replacement
 - 💬 **Interactive Chat UI**: Built with Streamlit, includes avatars, message history, and downloads
 - 🧾 **Structured Tool Response**: JSON format with `return_message`, `filename`, and `base64` encoded data
 - 📜 **Detailed Logging**: Tracks user input, tool calls, responses, and errors
@@ -51,6 +58,7 @@ User ⇨ Streamlit Chat UI
 - SSH/SCP accessible systems
 - Groq API key (sign up at [groq.com](https://groq.com/))
 - Streamlit
+- Dependencies from `requirements.txt`
 
 ### 🔧 Installation
 
@@ -81,6 +89,7 @@ GROQ_API_KEY=your_groq_api_key_here
 ## ▶️ Running the App
 
 ```bash
+export PYTHONPATH=$(pwd)
 streamlit run app/ui/chat_ui.py
 ```
 
@@ -96,9 +105,18 @@ app/
 ├── tools/
 │   ├── ssh_tool.py
 │   ├── scp_tool.py
+│   ├── openapi_tool.py
 │   └── utils.py
+├── common/
+│   ├──logger.py
+│   └── parser.py
 ├── ui/
 │   └── chat_ui.py
+├── openapi/
+│   └── OpenAPI spec yaml files
+├── configs/
+│   ├── server_client_secret.json
+│   └── device_credential.json
 .env
 README.md
 requirements.txt
@@ -109,4 +127,3 @@ requirements.txt
 ## 🤝 Contributions
 
 Got a new tool to add or a feature idea? PRs welcome!
-
